@@ -1,61 +1,87 @@
+/* eslint-disable react-native/no-inline-styles */
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import LinearGradient from 'react-native-linear-gradient';
+import useGetStartedStore from '../store/getStartedStore';
 
 export default function GetStarted() {
+  const {setIsStarted} = useGetStartedStore();
   return (
-    <View style={styles.container}>
-      <View style={styles.background} />
-      <View style={styles.imgwrapper}>
-        <Image
-          source={require('../assets/icons/Logo.png')}
-          style={styles.image}
-        />
-      </View>
-      <View>
-        <Text style={styles.title}>ninti.ai</Text>
-      </View>
-      <View>
-        <Text style={[styles.content, styles.wrapper]}>Delivers Unmached</Text>
-      </View>
-      <View>
-        <Text style={[styles.content1, styles.wrapper]}>
-          Precision & Insight for
-        </Text>
-      </View>
-      <View>
-        <Text style={[styles.content2, styles.wrapper]}>Superior Medical</Text>
-      </View>
-      <View>
-        <Text style={[styles.content3, styles.wrapper]}>Outcomes</Text>
-      </View>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Get Started</Text>
-      </TouchableOpacity>
+    <View style={{flex: 1}}>
+      <LinearGradient
+        colors={['#17694a', '#000000', '#000000']}
+        start={{x: 0.5, y: 0.1}}
+        style={styles.linearGradient}>
+        <View style={{flex: 1, alignContent: 'space-between'}}>
+          <View style={styles.container}>
+            <View style={styles.background}>
+              <Image
+                source={require('../assets/icons/Logo.png')}
+                style={styles.image}
+              />
+            </View>
+          </View>
+          <View style={{flex: 1, justifyContent: 'space-between', padding: 5}}>
+            <View>
+              <View>
+                <Text style={styles.title}>ninti.ai</Text>
+              </View>
+              <View>
+                <Text style={[styles.content, styles.wrapper]}>
+                  Delivers Unmached
+                </Text>
+              </View>
+              <View>
+                <Text style={[styles.content1, styles.wrapper]}>
+                  Precision & Insight for
+                </Text>
+              </View>
+              <View>
+                <Text style={[styles.content2, styles.wrapper]}>
+                  Superior Medical
+                </Text>
+              </View>
+              <View>
+                <Text style={[styles.content3, styles.wrapper]}>Outcomes</Text>
+              </View>
+            </View>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setIsStarted(true)}>
+              <Text style={styles.buttonText}>Get Started</Text>
+            </TouchableOpacity>
+            <View />
+          </View>
+        </View>
+      </LinearGradient>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  linearGradient: {
     width: '100%',
     height: '100%',
-    marginTop: 150,
-    position: 'relative',
-    padding: 10,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    padding: 5,
+    marginBottom: 10,
   },
   background: {
-    ...StyleSheet.absoluteFillObject,
+    // ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(255,255,255,0.1)',
     borderRadius: 30,
-    zIndex: 1,
     width: 167,
     height: 173,
     marginLeft: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   image: {
     width: 183,
     height: 190,
-    zIndex: 2,
   },
   imgwrapper: {
     width: 167,
@@ -109,7 +135,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    marginTop: 100,
     borderRadius: 10,
   },
   buttonText: {

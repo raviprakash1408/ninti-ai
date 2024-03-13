@@ -1,24 +1,26 @@
-/* eslint-disable react-native/no-inline-styles */
-import {SafeAreaView, StyleSheet, View, StatusBar} from 'react-native';
+import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
 import React, {Fragment} from 'react';
-import LinearGradient from 'react-native-linear-gradient';
 import GetStarted from './components/GetStarted';
+import useGetStartedStore from './store/getStartedStore';
+import Dashboard from './components/Dashboard';
 
 export default function App() {
+  const {isStarted} = useGetStartedStore();
   return (
     <Fragment>
       <StatusBar barStyle="light-content" />
-      <SafeAreaView style={styles.safeAreaGreen} />
-      <SafeAreaView style={styles.safeAreaBlack}>
-        <LinearGradient
-          colors={['#17694a', '#000000', '#000000']}
-          start={{x: 0.5, y: 0.1}}
-          style={styles.linearGradient}>
-          <View style={{flex: 1}}>
-            <GetStarted />
-          </View>
-        </LinearGradient>
+      <SafeAreaView
+        style={
+          isStarted
+            ? {flex: 1, backgroundColor: '#000000'}
+            : styles.safeAreaGreen
+        }>
+        {!isStarted && <GetStarted />}
+        {isStarted && <Dashboard />}
       </SafeAreaView>
+      <SafeAreaView
+        style={isStarted ? {backgroundColor: '#071f16'} : styles.safeAreaBlack}
+      />
     </Fragment>
   );
 }
