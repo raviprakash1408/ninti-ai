@@ -1,10 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {JobDetails} from '../utils/JobDetails';
 import {Bar} from 'react-native-progress';
+import useSubMenuedStore from '../store/subMenuStore';
 
-const JobCard = ({jobName, progress}: JobDetails) => {
+const JobCard = ({jobName, progress, id}: JobDetails) => {
+  const {setShowMenu} = useSubMenuedStore();
   const decimalProgress = progress / 100;
   return (
     <View
@@ -39,11 +41,13 @@ const JobCard = ({jobName, progress}: JobDetails) => {
             </Text>
           </View>
         </View>
-        <View style={{gap: 5}}>
+        <TouchableOpacity
+          style={{gap: 5, padding: 3}}
+          onPress={() => setShowMenu(id)}>
           <View style={styles.dots} />
           <View style={styles.dots} />
           <View style={styles.dots} />
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

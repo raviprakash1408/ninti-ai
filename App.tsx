@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
 import React, {Fragment} from 'react';
 import GetStarted from './components/GetStarted';

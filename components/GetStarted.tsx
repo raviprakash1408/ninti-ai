@@ -21,7 +21,7 @@ export default function GetStarted() {
               />
             </View>
           </View>
-          <View style={{flex: 1, justifyContent: 'space-between', padding: 5}}>
+          <View style={{flex: 1, justifyContent: 'space-between', padding: 10}}>
             <View>
               <View>
                 <Text style={styles.title}>ninti.ai</Text>
