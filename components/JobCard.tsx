@@ -9,13 +9,7 @@ const JobCard = ({jobName, progress, id}: JobDetails) => {
   const {setShowMenu} = useSubMenuedStore();
   const decimalProgress = progress / 100;
   return (
-    <View
-      style={{
-        height: 154,
-        borderRadius: 20,
-        backgroundColor: '#202020',
-        padding: 20,
-      }}>
+    <View style={styles.container}>
       <View
         style={{
           flexDirection: 'row',
@@ -60,7 +54,13 @@ const styles = StyleSheet.create({
     width: 4,
     height: 4,
     // @ts-ignore
-    borderRadius: '50%',
+    borderRadius: 50,
     backgroundColor: 'white',
+  },
+  container: {
+    height: 154,
+    borderRadius: 20,
+    backgroundColor: '#202020',
+    padding: 20,
   },
 });

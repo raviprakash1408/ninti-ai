@@ -10,9 +10,20 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-voice/voice": "^3.2.4",
+    "expo": "^50.0.0",
+    "expo-av": "^13.10.5",
+    "microsoft-cognitiveservices-speech-sdk": "^1.36.0",
+    "node-libs-react-native": "^1.2.1",
     "react": "18.2.0",
     "react-native": "0.73.6",
+    "react-native-device-info": "^10.13.1",
+    "react-native-dotenv": "^3.4.11",
+    "react-native-get-random-values": "^1.11.0",
+    "react-native-incall-manager": "^4.2.0",
     "react-native-linear-gradient": "^2.8.3",
+    "react-native-live-audio-stream": "^1.1.1",
+    "react-native-permissions": "^4.1.4",
     "react-native-progress": "^5.0.1",
     "react-native-svg": "^15.1.0",
     "zustand": "^4.5.2"
